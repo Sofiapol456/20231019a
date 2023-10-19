@@ -22,7 +22,7 @@ while($fila = mysqli_fetch_assoc($r))
 {
 
 // incrementa o aculula
-$salida = 10 + 20;  
+$salida = $fila['n1'] + $fila['n2'];  
 
 }
 

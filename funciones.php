@@ -139,3 +139,22 @@ mysqli_close($conexion);
 //retorna la operacion
 return $salida;
 
+
+<?php
+function actualizar($id){
+// inicializa la variable
+$salida = 0; 
+// se conecta con la base de datos
+$conexion = mysqli_connect('localhost', 'root', 'root', 'db_iniciar_sesion_45');
+// se acomoda los numeros 
+$sql = "update db_iniciar_sesion_45 set sitio = 'sofia' where dni_usuario = '1';";
+// ejecuta la consulta
+$r = $conexion -> query($sql);
+//recorre el recordset
+$salida=mysqli_affected_rows($conexion);
+//cerrado de la conexion
+mysqli_close($conexion);
+//retorna la operacion
+return $salida;
+
+}

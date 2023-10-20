@@ -125,3 +125,27 @@ mysqli_close($conexion);
 //retorna la operacion
 return $salida;
 }
+
+<?php
+//se nombra las funcion
+function consultar_persona($u=null, $c=null){
+// inicializa la variable
+$salida = 0; 
+// se conecta con la base de datos
+$conexion = mysqli_connect('localhost', 'root', 'root', 'db_iniciar_sesion_45');
+// lo que se va a consultar
+$sql = "select * from db_iniciar_sesion_45;";
+if($u !=null) $sql .= "where db_iniciar_sesion='$u'";
+// ejecuta la consulta
+$resultado = $conexion -> query($sql);
+
+//recorre el recordset
+while($fila = mysqli_fetch_assoc($resultado))
+{
+    $salida = $fila['id_usuario'] . "<br>" . $salida = $fila['nombre'] . "<br>" . $salida = $fila['sitio'] . "<br>";
+}
+//cerrar la conexion
+mysqli_close($conexion);
+//retorna la operacion
+return $salida;
+}
